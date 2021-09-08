@@ -3,16 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+#whoami
+Name: Tom Daniels
+Graduated: Rochester Institute of Technology in 2018
+I'm a computer nerd that's interested in the Windows operating system, red and blue teaming, reverse engineering, binary exploitating, and coding. I'm constantly interested in learning new things, problem solving, and automating boring tasks. You can usually find me out hiking or at a rock climbing crag.
