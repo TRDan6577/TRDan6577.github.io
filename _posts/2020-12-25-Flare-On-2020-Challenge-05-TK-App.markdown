@@ -1,8 +1,10 @@
 ---
-layout: post
-title: "Flare-On 2020: Challenge 05 - TK App"
+title: "Flare-On 2020: 05 - TKApp"
 date: 2020-12-25 00:05:00
-categories: flareon reversing challenge ilspy
+header:
+  image: /assets/images/05TKApp/header.png
+  teaser: /assets/images/05TKApp/header.png
+  caption: "[credit](https://licc.org.uk/app/uploads/2020/05/Tiger-King-Web-MJ-Edit-700x540.png)"
 ---
 # Challenge 5 - TKApp
 
@@ -12,13 +14,13 @@ Ok, all we're given for this challenge is a .tpk file. A quick search in Google 
 
 Let's try to get some information about this binary by using [PEiD](https://www.aldeid.com/wiki/PEiD)
 
-![5.1.jpg](https://imgur.com/sL3X4SO.jpg)
+![5.1.jpg](/assets/images/05TKApp/5.1.jpg)
 
 PEiD tells us that this dll was written in C#. This means we can throw it into [ILSpy](https://github.com/icsharpcode/ILSpy) and have it decompile it for us!
 
 After searching around for a while, learning the interface, and understanding the code, the function `GetImage()` seems of interest.
 
-```
+```csharp
 private bool GetImage(object sender, EventArgs e)
 {
 	if (string.IsNullOrEmpty(App.Password) || string.IsNullOrEmpty(App.Note) || string.IsNullOrEmpty(App.Step) || string.IsNullOrEmpty(App.Desc))
@@ -95,11 +97,11 @@ To create the image, we'll need to find out how `App.Desc`, `App.Password`, `App
 ## App.Desc
 For each of these variables, the process will be fairly similar. ILSpy provides us with an "Analyze" function that can track where a particular variable is used or set.
 
-![5.2.jpg](https://imgur.com/ncOulTA.jpg)
+![5.2.jpg](/assets/images/05TKApp/5.2.jpg)
 
 In the case of the Desc variable, let's follow this to `IndexPage_CurrentPageChanged()`.
 
-```
+```csharp
 private void IndexPage_CurrentPageChanged(object sender, EventArgs e)
 {
 	if (base.Children.IndexOf(base.CurrentPage) == 4)
@@ -121,14 +123,14 @@ private void IndexPage_CurrentPageChanged(object sender, EventArgs e)
 
 Looks like this function reads the ImageDescription tag on the image TKApp/res/gallery/05.jpg and stores the result in Desc. In less than a minute, we have our first variable assigned a value: "water"
 
-![5.3.jpg](https://imgur.com/BYcKeYR.jpg)
+![5.3.jpg](/assets/images/05TKApp/5.3.jpg)
 
 ## App.Password
 
-![5.4.jpg](https://imgur.com/aMt58Bh.jpg)
+![5.4.jpg](/assets/images/05TKApp/5.4.jpg)
 
 We see password is set in `OnLoginButtonClicked()`. Below is that function:
-```
+```csharp
 private async void OnLoginButtonClicked(object sender, EventArgs e)
 {
 	if (IsPasswordCorrect(passwordEntry.Text))
@@ -148,14 +150,14 @@ private async void OnLoginButtonClicked(object sender, EventArgs e)
 
 `IsPasswordCorrect()` returns true if the input matches `Util.Decode(TKData.Password)`. `TKData.Password` is statically set to a byte array and `Util.Decode()` simply XORs each byte with a key of `0x53`. We can use [CyberChef](https://gchq.github.io/CyberChef/) to extract the expected password of "mullethat"
 
-![5.5.jpg](https://imgur.com/2sp7ePY.jpg)
+![5.5.jpg](/assets/images/05TKApp/5.5.jpg)
 
 ## App.Step
 
-![5.6.jpg](https://imgur.com/9ghx4G2.jpg)
+![5.6.jpg](/assets/images/05TKApp/5.6.jpg)
 
 Step is set in `PedDataUpdate()`. The following snippet of the function shows how it's set:
-```
+```csharp
 if (e.get_StepCount() > 50 && string.IsNullOrEmpty(App.Step))
 {
 	App.Step = Application.get_Current().get_ApplicationInfo().get_Metadata()["its"];
@@ -163,14 +165,14 @@ if (e.get_StepCount() > 50 && string.IsNullOrEmpty(App.Step))
 ```
 After searching for a while, the metadata can be found in tizen-manifest.xml in the root of the TKApp directory. The value of the key of "its" is "magic"
 
-![5.7.jpg](https://imgur.com/E44rAmc.jpg)
+![5.7.jpg](/assets/images/05TKApp/5.7.jpg)
 
 ## App.Note
 
-![5.8.jpg](https://imgur.com/0LeyN3X.jpg)
+![5.8.jpg](/assets/images/05TKApp/5.8.jpg)
 
 ILSpy tells us that Note is set in `SetupList()`
-```
+```csharp
 private void SetupList()
 {
 	List<Todo> list = new List<Todo>();
@@ -209,11 +211,11 @@ Reading through the code, Note ends up being set to the second string of the sec
 
 Now that we've finished our side quests, we return to `GetImage()`. Using the strings we obtained in the last 4 sections, the `text` variable ends up being "the kind of challenges we are gonna make here", our `key` is the SHA256 hash of `text` (`248E9D7323A1A3C5D5B3283DCB2B40211A14415B6DCD2A86181721FD74B4BEFD`) and our `bytes` (IV) is `4e 6f 53 61 6c 74 4f 66 54 68 65 45 61 72 74 68` (or "NoSaltOfTheEarth"). These variables are passed to `GetString()`, which simply AES decrypts data with a key and an initialization vector - `key` is the key and `bytes` is the IV. The ciphertext is obtained from Runtime.Runtime_dll. After searching for a bit in ILSpy, I found Runtime.Runtime_dll file here:
 
-![5.9.jpg](https://imgur.com/VYegPbs.jpg)
+![5.9.jpg](/assets/images/05TKApp/5.9.jpg)
 
 We can right click --> save code on this item in ILSpy, upload it to CyberChef's input and use CyberChef's AES decrypt routine, along with the key and IV we found previously, CyberChef gives us a suggestion to use FromBase64 and RenderImage on the result which gives us the flag:
 
-![5.10.jpg](https://imgur.com/kws4KE4.jpg)
+![5.10.jpg](/assets/images/05TKApp/5.10.jpg)
 
 Flag: `n3ver_go1ng_to_recov3r@flare-on.com`
 

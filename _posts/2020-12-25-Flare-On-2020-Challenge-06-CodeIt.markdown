@@ -1,30 +1,32 @@
 ---
-layout: post
-title: "Flare-On 2020: Challenge 06 - CodeIt"
+title: "Flare-On 2020: 06 - CodeIt"
 date: 2020-12-25 00:06:00
-categories: flareon reversing challenge
+header:
+  image: /assets/images/06CodeIt/header.png
+  teaser: /assets/images/06CodeIt/header.png
+  caption: "[credit](https://logos-download.com/wp-content/uploads/2020/06/AutoIt_Logo.png)"
 ---
-Challenge 6: Codeit
+# Challenge 6 - Codeit
 
-"Reverse engineer this little compiled script to figure out what you need to do to make it give you the flag (as a QR code)."
+> Reverse engineer this little compiled script to figure out what you need to do to make it give you the flag (as a QR code).
 
 Extracting the zip file for the challenge only gives us the LICENSE file, the challenge message file, and an executable called codeit.exe. Running the executable shows a handsome flareon symbol, ready to generate some QR codes.
 
-![6.1.jpg](https://imgur.com/UFRfYhY.jpg)
+![6.1.jpg](/assets/images/06CodeIt/6.1.jpg)
 
 According to the message included with the challenge, it sounds like some secret input gives the flag as a QRcode. Let's try "password"!
 
-![6.2.jpg](https://imgur.com/0zxyir6.jpg)
+![6.2.jpg](/assets/images/06CodeIt/6.2.jpg)
 
 The program generates a QRcode that, when scanned, shows the input. Maybe the 6th challenge will be unusually easier than the rest and the secret code is a string stored in the binary?
 
 Drat. While there's nothing that could obviously be the flag here, we do find the string "AU3!EA06T"
 
-![6.3.jpg](https://imgur.com/dn1kvUH.jpg)
+![6.3.jpg](/assets/images/06CodeIt/6.3.jpg)
 
 au3 is a common file extension for AutoIt version 3 files. Searching around on the internet for some resources to reverse engineer an AutoIt compiled program, I found [a blog post](https://r3mrum.wordpress.com/2017/07/10/autoit-malware-from-compiled-binary-to-plain-text-script/) with a link at the bottom to an [AutoIt decompiler](https://drive.google.com/open?id=1H9s9y-3LgdEjBayUOeBv88dZzXUIoHwC). Running our compiled binary through the AutoIt decomplier is a success! We're given a highly obfuscated AutoIt script that we'll need to reverse engineer in order to figure out the flag.
 
-In order to help the reverse engineering process, I created a powershell script to help de-obfuscate the code. You can find Invoke-DeObfuscation in the foler (here)[https://github.com/TRDan6577/Writeups/tree/main/FireEye%20Flare-On/2020].
+In order to help the reverse engineering process, I created a powershell script to help de-obfuscate the code. You can find Invoke-DeObfuscation in the folder [here](https://github.com/TRDan6577/Writeups/tree/main/FireEye%20Flare-On/2020).
 
 The deobfuscation plus a little extra labeling from manual analysis gives us:
 ```
@@ -687,7 +689,7 @@ EndFunc
 
 Taken straight from my inline notes, `InstallBmpOrDll()` installs sprite.bmp or qr_encoder.dll (using the AutoIt function [`FileInstall()`](https://autoitscript.com/autoit3/docs/functions/FileInstall.htm)) with a random filename into the script directory and returns the name of the installed file. The determining factor for whether it will install the bmp or the dll is the parameter passed in. The TLDR on `FileInstall()` from the docs is that it's essentially a way to include a file in the compiled version of your autoit binary. When the autoit script is compiled with a `FileInstall()` function call, it saves the file in the compiled binary. Then, during execution of the binary, it will extract the file from the binary for use. So the first part of this script extracts and reads the bmp file. Let's see what the file contains - our handy exe2Aut.exe tool already extracted the bmp file for us.
 
-![6.4.jpg](https://imgur.com/UuxxTrl.jpg)
+![6.4.jpg](/assets/images/06CodeIt/6.4.jpg)
 
 The bmp file was our happy little Flare-on character! Back to `obfuscateComputerName()`, we can see the file is read, stored in a struct called $byteArrayFileSizeStruct, then a new struct is created called `$flxmdchrqd` that contains the data from the file in two seperate byte array pointers. The first pointer contains the first 54 bytes of the file and the second pointer contains the rest of the data. The loop right below this only references the second pointer so we're only dealing with the 54th byte of data onward. Digging a bit into the loop, the subloop there sets some sort of char code based on the following formula:
 
@@ -733,7 +735,7 @@ EndFunc
 
 Then, we can re-run the script (note that this newly saved script needs to have the extract qr_encoder.dll and sprite.bmp files in the same directory), enter arbitrary input (because the output is alerted if the computer name is correct), and we get the following QR code:
 
-![6.5.jpg](https://imgur.com/XCvDPAv.jpg)
+![6.5.jpg](/assets/images/06CodeIt/6.5.jpg)
 
 This is our flag!! Simply find a QR code reader (I learned that the Pixel has one built into the camera app. Neat.) to reveal the flag.
 

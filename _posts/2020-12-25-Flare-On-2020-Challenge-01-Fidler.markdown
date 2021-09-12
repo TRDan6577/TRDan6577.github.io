@@ -1,8 +1,10 @@
 ---
-layout: post
-title: "Flare-On 2020: Challenge 01 - Fidler"
+title: "Flare-On 2020: 01 - Fidler"
 date: 2020-12-25 00:01:00
-categories: flareon reversing challenge
+header:
+  image: /assets/images/01Fidler/header.png
+  teaser: /assets/images/01Fidler/header.png
+  caption: "[credit](https://www.fireeye.com/content/dam/fireeye-www/blog/images/flareon7/FLARE-On%207.png)"
 ---
 # Challenge 1 - Fidler
 > Welcome to the Seventh Flare-On Challenge!
@@ -13,15 +15,15 @@ categories: flareon reversing challenge
 
 Fantastic! The source code is provided to us in Python. Let's take a look at fidler.py for the flag.
 
-![1.1.jpg](https://imgur.com/1ZxAvI6.jpg)
+![1.1.jpg](/assets/images/01Fidler/1.1.jpg)
 
 This function seems promising! Backtracing through the code to see where it's called, we can see a possible call stack of: `game_screen() --> victory_screen(int(current_coins / 10**8)) --> decode_flag(token)`
 
-![1.2.jpg](https://imgur.com/K8B1GSM.jpg)
+![1.2.jpg](/assets/images/01Fidler/1.2.jpg)
 
 In order to call `victory_screen()` from `game_screen()`, we need to reach the target amount of coins. `current_coins` is passed from `game_screen()` all the way to `decode_flag()` as the token without any modification. It looks like we can reach `victory_screen()` by reaching the target amount (though theoretically due to rounding, `int(current_coins/10**8)` just needs to equal 1030). Using the following code, we can set our wealth arbitrarily (the IRL dream) and extract the flag:
 
-```
+```python
 def decode_flag(frob):
     last_value = frob
     encoded_flag = [1135, 1038, 1126, 1028, 1117, 1071, 1094, 1077, 1121, 1087, 1110, 1092, 1072, 1095, 1090, 1027,

@@ -1,10 +1,12 @@
 ---
-layout: post
-title: "Flare-On 2020: Challenge 04 - Report"
+title: "Flare-On 2020: 04 - Report"
 date: 2020-12-25 00:04:00
-categories: flareon reversing challenge macros
+header:
+  image: /assets/images/04Report/header.png
+  teaser: /assets/images/04Report/header.png
+  caption: "[credit](https://www.fortinet.com/content/dam/fortinet-blog/new-images/uploads/microsoft-excel-files-increasingly-used-to-spread-malware-1421.png)"
 ---
-# Challenge 4 - report
+# Challenge 4 - Report
 
 > Nobody likes analysing infected documents, but it pays the bills. Reverse this macro thrill-ride to discover how to get it to show you the key.
 
@@ -46,7 +48,7 @@ Of particular note is the last detection - the VBA Stomping. I had never heard o
 
 This is a hint to us to compare the p-code and source code to confirm there's a difference and if so, analyze the p-code instead of the source code. If you miss this detection and ignore the p-code section, you're not alone - I did the same thing. Ignoring the p-code section, if you remove all the unnecessary checks and widdle the code down to the core of its logic, you get the following:
 
-```
+```vb
 Sub test()
     Dim xertz As Variant
     Dim mf As String
@@ -68,13 +70,13 @@ Sub test()
 
 This mp3 file that it generates doesn't actually play anything (but, in my opinion, should have played some sad violin music). Inside the mp3, the author of the challenge tells us we're going down the wrong rabbit hole and polietly directs us to examine the p-code.
 
-![4.3.jpg](https://imgur.com/8JSeoSp.jpg)
+![4.3.jpg](/assets/images/04Report/4.3.jpg)
 
 Now confidently back on track, examining the p-code and comparing it to the source code tell us that all the functions except for the end of `folderol()` (the function that's called when macros are enabled) are exactly the same. There's no guide that I could find for reversing p-code but after comparing a few lines of p-code to source code, it's fairly intuitive and I was able to figure it out on the fly.
 
 After reversing the p-code, trimming the unnecessary fat, and adding a touch of our own code, we're left with the following:
 
-```
+```vb
 Sub test()
     Dim test As String
     Dim xertz As Variant
@@ -117,7 +119,7 @@ Sub test()
 where "raw.txt" is the full content of F.T.Text which can be found in the olevba dump we did earlier. Running this code generates an image file with the flag:
 
 
-![4.4.jpg](https://imgur.com/7x95Svi.jpg)
+![4.4.jpg](/assets/images/04Report/4.4.jpg)
 
 
 Flag: `thi5_cou1d_h4v3_b33n_b4d@flare-on.com`
