@@ -5,36 +5,36 @@
 */
 
 /* Variables */
-@import "minimal-mistakes/variables";
+@import "minimal-mistakes/variables.scss";
 
 /* Mixins and functions */
-@import "minimal-mistakes/vendor/breakpoint/_breakpoint";
+@import "minimal-mistakes/vendor/breakpoint/_breakpoint.scss";
 @include breakpoint-set("to ems", true);
-@import "minimal-mistakes/vendor/magnific-popup/_magnific-popup"; // Magnific Popup
-@import "minimal-mistakes/vendor/susy/_susy";
-@import "minimal-mistakes/_mixins";
+@import "minimal-mistakes/vendor/magnific-popup/_magnific-popup.scss"; // Magnific Popup
+@import "minimal-mistakes/vendor/susy/_susy.scss";
+@import "minimal-mistakes/_mixins.scss";
 
 /* Core CSS */
-@import "minimal-mistakes/_reset";
-@import "minimal-mistakes/_base";
-@import "minimal-mistakes/_forms";
-@import "minimal-mistakes/_tables";
-@import "minimal-mistakes/_animations";
+@import "minimal-mistakes/_reset.scss";
+@import "minimal-mistakes/_base.scss";
+@import "minimal-mistakes/_forms.scss";
+@import "minimal-mistakes/_tables.scss";
+@import "minimal-mistakes/_animations.scss";
 
 /* Components */
-@import "minimal-mistakes/_buttons";
-@import "minimal-mistakes/_notices";
-@import "minimal-mistakes/_masthead";
-@import "minimal-mistakes/_navigation";
-@import "minimal-mistakes/_footer";
-@import "minimal-mistakes/_search";
-@import "minimal-mistakes/_syntax";
+@import "minimal-mistakes/_buttons.scss";
+@import "minimal-mistakes/_notices.scss";
+@import "minimal-mistakes/_masthead.scss";
+@import "minimal-mistakes/_navigation.scss";
+@import "minimal-mistakes/_footer.scss";
+@import "minimal-mistakes/_search.scss";
+@import "minimal-mistakes/_syntax.scss";
 
 /* Utility classes */
-@import "minimal-mistakes/_utilities";
+@import "minimal-mistakes/_utilities.scss";
 
 /* Layout specific */
-@import "minimal-mistakes/_page";
-@import "minimal-mistakes/_archive";
-@import "minimal-mistakes/_sidebar";
-@import "minimal-mistakes/_print";
+@import "minimal-mistakes/_page.scss";
+@import "minimal-mistakes/_archive.scss";
+@import "minimal-mistakes/_sidebar.scss";
+@import "minimal-mistakes/_print.scss";
