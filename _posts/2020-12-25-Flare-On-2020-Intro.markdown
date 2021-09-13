@@ -1,20 +1,24 @@
 ---
-layout: post
-title: "Cinderblock Boots in the Deep End: Learning Reversing Through the Flare-On 2020 Challenges"
-date: 2020-12-25 00:00:00
-categories: reversing flareon challenges
+title: "Flare-On 2020 Challenges"
+date: 2020-12-25 00:07:00
 ---
-
-# Flare-on 2020
 This was my first reverse engineering capture the flag.
 
 The results can be found [here](https://www.fireeye.com/blog/threat-research/2020/10/flare-on-7-challenge-solutions.html). Overall, I was one of 817 people to complete 6 challenges out of the 5,648 contestants registered (top 15%)
 
+# Posts
+{% for post in site.posts reversed -%}
+ {% if post.title contains "Flare-On 2020: " %}
+   [{{- post.title -}}]({{- post.url  -}})
+ {% endif %}
+{%- endfor %}
+
+# Takeaways
 It took me a while to create the writeups for all of these challenges because I had to go back and take screenshots of the challenges. This is why the date of the posts is 2 months after the challenge ended. In some cases, my notes didn't cover a critical step in solving the problem so I had to either remember how I solved it or re-solve the challenge in order to get the screenshots I needed. Two lessons:
 * No such thing as copious notes when recording content for a How-To (or How-I-Solved-This)
 * Take screenshots as you go
 
-The challenge files can be found either on the web or at [my github](https://github.com/trdan6577/writeups/tree/main/FireEye Flare-On/2020/)
+The challenge files can be found either on the web or at [my github](https://github.com/trdan6577/writeups/tree/main/FireEye Flare-On/2020/).
 
 # Disclaimer
 I did not write the challenge files (the files included in this directory with the .7z file extension). These were written by the amazing authors at Flare-on. These files should _ONLY_ be opened in a lab or VM that's designed for malware analysis. The password for all of these files is `flare`.

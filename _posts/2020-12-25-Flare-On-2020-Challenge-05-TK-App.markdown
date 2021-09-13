@@ -221,3 +221,9 @@ Flag: `n3ver_go1ng_to_recov3r@flare-on.com`
 
 ## Side note
 If you reverse The `Init()` function, the Latitude and Longitude are set to [34.6252, -97.2117](https://www.google.com/maps/place/34%C2%B037'30.7%22N+97%C2%B012'42.1%22W/@34.6252044,-97.2138887,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d34.6252!4d-97.2117) based off of the coordinates embedded in the metadata of res/gallery/04.jpg. I haven't seen Tiger King, but my guess is that this the location of the park owned by Joe Exotic in the show.
+
+{% for post in site.posts -%}
+ {% if post.title contains "Flare-On 2020 Challenges" %}
+   [Click here]({{- post.url  -}}) to return to the Flare-On 2020 overview page.
+ {% endif %}
+{%- endfor %}

@@ -123,3 +123,9 @@ where "raw.txt" is the full content of F.T.Text which can be found in the olevba
 
 
 Flag: `thi5_cou1d_h4v3_b33n_b4d@flare-on.com`
+
+{% for post in site.posts -%}
+ {% if post.title contains "Flare-On 2020 Challenges" %}
+   [Click here]({{- post.url  -}}) to return to the Flare-On 2020 overview page.
+ {% endif %}
+{%- endfor %}

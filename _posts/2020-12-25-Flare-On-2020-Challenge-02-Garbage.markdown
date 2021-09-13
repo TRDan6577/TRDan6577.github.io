@@ -94,3 +94,9 @@ Changing this to 0x00 and running the binary presents us with a glorious message
 ![2.13](/assets/images/02Garbage/2.13.jpg)
 
 Our flag is `C0rruptGarbag3@flare-on.com`.
+
+{% for post in site.posts -%}
+ {% if post.title contains "Flare-On 2020 Challenges" %}
+   [Click here]({{- post.url  -}}) to return to the Flare-On 2020 overview page.
+ {% endif %}
+{%- endfor %}

@@ -740,3 +740,9 @@ Then, we can re-run the script (note that this newly saved script needs to have 
 This is our flag!! Simply find a QR code reader (I learned that the Pixel has one built into the camera app. Neat.) to reveal the flag.
 
 Flag: `L00ks_L1k3_Y0u_D1dnt_Run_Aut0_Tim3_0n_Th1s_0ne!@flare-on.com`
+
+{% for post in site.posts -%}
+ {% if post.title contains "Flare-On 2020 Challenges" %}
+   [Click here]({{- post.url  -}}) to return to the Flare-On 2020 overview page.
+ {% endif %}
+{%- endfor %}

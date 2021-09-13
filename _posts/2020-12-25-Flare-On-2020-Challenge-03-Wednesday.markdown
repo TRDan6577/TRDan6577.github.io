@@ -68,3 +68,9 @@ So as long as the expected action and the real action are exactly the same, we'l
 ![3.8](/assets/images/03Wednesday/3.8.jpg)
 
 Flag: `1t_i5_wEdn3sd4y_mY_Dud3s@flare-on.com`
+
+{% for post in site.posts -%}
+ {% if post.title contains "Flare-On 2020 Challenges" %}
+   [Click here]({{- post.url  -}}) to return to the Flare-On 2020 overview page.
+ {% endif %}
+{%- endfor %}

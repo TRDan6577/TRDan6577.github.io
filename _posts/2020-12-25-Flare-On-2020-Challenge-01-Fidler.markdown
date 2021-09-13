@@ -43,3 +43,9 @@ print(decode_flag(int((2**36 + 2**35)/10**8)))
 ```
 
 This gives us the flag: `idle_with_kitty@flare-on.com`
+
+{% for post in site.posts -%}
+ {% if post.title contains "Flare-On 2020 Challenges" %}
+   [Click here]({{- post.url  -}}) to return to the Flare-On 2020 overview page.
+ {% endif %}
+{%- endfor %}
