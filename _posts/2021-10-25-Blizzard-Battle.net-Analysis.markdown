@@ -30,7 +30,7 @@ Due to the lack of real sustenance of a post that ends with "yea it's exactly th
 The key is encrypted with the DPAPI and optional entropy that's hard coded into the Battle.net binary. More info on how I discovered all of this can be found in [the deep dive](#deep-dive-encryption-key-analysis).
 
 The final interesting string was from the ProcMon results was:
-* C:\Users\Tom\AppData\Local\Battle.net\Account\314965916\account.db
+* C:\Users\Tom\AppData\Local\Battle.net\Account\123456789\account.db
 
 I couldn't analyze this file as-is because it was encrypted. Digging through documentation for different SQLite encryption tools, I eventually found similarities between the account.db file, what was described in the [SQLite Encryption Extension](https://www.sqlite.org/see/doc/release/www/readme.wiki) (SEE), and how the data was being decrypted in the debugger I was using. I didn't know of any open source SEE decryption tool, so I wrote one to decrypt the account.db file using the information on the SEE documentation page and the encryption key found in the registry. The only interesting data contained in the database appeared to be an OAuth token.
 
@@ -38,7 +38,7 @@ I couldn't analyze this file as-is because it was encrypted. Digging through doc
 As with all simple questions, I started with a Google search to see if the answer was already out there. Most of the results I found related to people who forgot their passwords and were trying to recover it - I couldn't find anything describing the _technical_ tidbits of how and where a game client stores that information.
 
 Let's dive in! I was looking to analyze this on Windows, so I started by firing up [Procmon](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon), then logging into the Battle.net client and browsing through the results. After a bit of filtering and scrolling, I found a couple of interesting locations on disk:
-* C:\Users\Tom\AppData\Local\Battle.net\Account\314965916\account.db
+* C:\Users\Tom\AppData\Local\Battle.net\Account\123456789\account.db
 * C:\Users\Tom\AppData\Local\Battle.net\CachedData.db
 * HKEY\_CURRENT\_USER\SOFTWARE\Blizzard Entertainment\Battle.net\EncryptionKey\CacheDatabase
 
@@ -91,7 +91,7 @@ SELECT * FROM login_cache;
 
 |**name**|**environment**|**battle_tag**|**account_id_hi**|**account_id_lo**|**connected_environments**|
 |------------------|----------------------|------------|-------------------|---------------|------------------------|
-|72705e158dc13c5f|us.actual.battle.net|Cargo#XXXX|720575940XXXXXXXX|314965916|EU,KR,SG,US,XX|
+|72705XXXXX|us.actual.battle.net|Cargo#XXXX|XXXXXXXXXXXXX|XXXXXX|EU,KR,SG,US,XX|
 
 It also doesn't look like our EncryptionKey registry value (CacheDatabase which seems related to this file based on similarities between the names) could be used here because there don't appear to be any encrypted fields in this database.
 
@@ -462,6 +462,6 @@ Most of these tables contain no data except for account\_storage, key\_value\_st
 |api\_gateway\_oauth\_scopes|cts:read account.standard commerce.inventory.full account.standard:modify|
 |last\_selected\_product\_group|Pro|
 |settings\_telemetry\_last\_sent|1635391236|
-|features\_cached\_data\_points|{"account\_country":"USA","account\_id":314965916,"account\_region":"US","geoip\_country":"US","licenses":[274,16332,20010,20195,27639,37396]}|
+|features\_cached\_data\_points|{"account\_country":"USA","account\_id":XXXXXXXX,"account\_region":"US","geoip\_country":"US","licenses":[274,16332,20010,20195,27639,37396]}|
 
 Looks like there's some sort of OAuth token present here! Maybe in a future blog post, I'll figure out what it's used for 😉
