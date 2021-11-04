@@ -1,6 +1,7 @@
 ---
 title: "Flare-On 2020 Challenges"
 date: 2020-12-25 00:07:00
+tags: [ctf, flareon, reversing]
 ---
 This was my first reverse engineering capture the flag.
 

@@ -3,6 +3,7 @@ title: Cheating at Minesweeper
 header:
   image: /assets/images/MinesweeperHelper/Figure5.jpg
   teaser: /assets/images/MinesweeperHelper/Figure5.jpg
+tags: [hacking, c, windows, reversing]
 ---
 As I began looking for resources on where to start with learning reverse engineering, I came across [a blog post](https://medium.com/bugbountywriteup/haxing-minesweeper-e79ece9f5d16) where Osanda Malith Jayathissa noted that they were struck with inspiration to reverse minesweeper. I read the first three introduction paragraphs and thought, "Wait. I could probably do this myself". If you're new to reversing and are thinking the same thing, stop reading now and give it a shot. You'll learn so much more than if you read this post.
 

@@ -4,6 +4,7 @@ date: 2020-12-25 00:03:00
 header:
   image: /assets/images/03Wednesday/3.1.jpg
   teaser: /assets/images/03Wednesday/3.1.jpg
+tags: [reversing, ctf, flareon]
 ---
 # Challenge 3 - Wednesday
 >                        --- BE THE WEDNESDAY ---

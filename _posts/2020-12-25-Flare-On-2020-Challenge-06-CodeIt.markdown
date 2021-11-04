@@ -5,6 +5,7 @@ header:
   image: /assets/images/06CodeIt/header.png
   teaser: /assets/images/06CodeIt/header.png
   caption: "[credit](https://logos-download.com/wp-content/uploads/2020/06/AutoIt_Logo.png)"
+tags: [reversing, ctf, flareon, autoit]
 ---
 # Challenge 6 - Codeit
 

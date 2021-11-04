@@ -4,6 +4,7 @@ date: 2020-12-25 00:02:00
 header:
   image: /assets/images/02Garbage/2.1.jpg
   teaser: /assets/images/02Garbage/2.1.jpg
+tags: [ctf, reversing, flareon]
 ---
 # Challenge 2 - Garbage
 

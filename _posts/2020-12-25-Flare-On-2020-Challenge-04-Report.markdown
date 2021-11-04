@@ -5,6 +5,7 @@ header:
   image: /assets/images/04Report/header.png
   teaser: /assets/images/04Report/header.png
   caption: "[credit](https://www.fortinet.com/content/dam/fortinet-blog/new-images/uploads/microsoft-excel-files-increasingly-used-to-spread-malware-1421.png)"
+tags: [ctf, reversing, macro, flareon]
 ---
 # Challenge 4 - Report
 

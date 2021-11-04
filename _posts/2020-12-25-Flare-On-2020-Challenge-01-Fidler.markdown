@@ -5,6 +5,7 @@ header:
   image: /assets/images/01Fidler/header.png
   teaser: /assets/images/01Fidler/header.png
   caption: "[credit](https://www.fireeye.com/content/dam/fireeye-www/blog/images/flareon7/FLARE-On%207.png)"
+tags: [python, flareon, reversing, ctf]
 ---
 # Challenge 1 - Fidler
 > Welcome to the Seventh Flare-On Challenge!
