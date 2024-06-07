@@ -1,5 +1,6 @@
 ---
 title: Cheating at Minesweeper
+show_date: true
 header:
   image: /assets/images/MinesweeperHelper/Figure5.jpg
   teaser: /assets/images/MinesweeperHelper/Figure5.jpg

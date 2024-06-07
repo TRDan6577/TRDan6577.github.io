@@ -1,5 +1,6 @@
 ---
 title: "Flare-On 2020: 04 - Report"
+show_date: true
 date: 2020-12-25 00:04:00
 header:
   image: /assets/images/04Report/header.png

@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net" modified="2023-12-19T03:35:29.938Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="i-DGAue0gGBiDivGwYki" version="22.1.11" type="device">
+  <diagram name="Page-1" id="0R_MVi9ts8Oqg396Z44L">
+    <mxGraphModel dx="1434" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-1" value="Client" style="image;sketch=0;aspect=fixed;html=1;points=[];align=left;fontSize=23;image=img/lib/mscae/VirtualMachineWindows.svg;labelPosition=right;verticalLabelPosition=middle;verticalAlign=middle;spacingLeft=10;" parent="1" vertex="1">
+          <mxGeometry x="27.5" y="84.8" width="110" height="101.2" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-2" value="Server" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=left;verticalLabelPosition=middle;verticalAlign=middle;align=right;fillColor=#00188D;shape=mxgraph.mscae.enterprise.windows_server;fontSize=23;spacingLeft=0;spacingRight=10;" parent="1" vertex="1">
+          <mxGeometry x="700" y="71.89999999999999" width="89" height="114.1" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="209" as="sourcePoint" />
+            <mxPoint x="590" y="209" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430" y="209" />
+              <mxPoint x="430" y="209" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-17" value="1) Client tries to access \\server01\share\ . The authentication&lt;br&gt;process kicks off. The default authentication mechanism&lt;br&gt;in Active Directory domains is Kerberos." style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="iCWPeb0PU9Qs5NXswnXH-13" vertex="1" connectable="0">
+          <mxGeometry x="-0.04" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;fontColor=#ffffff;strokeColor=#314354;" parent="1" vertex="1">
+          <mxGeometry x="20" y="186" width="240" height="344" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-4" value="explorer.exe" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/general/Folder_Blank.svg;" parent="1" vertex="1">
+          <mxGeometry x="60" y="210" width="61.61" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="iCWPeb0PU9Qs5NXswnXH-5" target="iCWPeb0PU9Qs5NXswnXH-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-1" value="Points to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iCWPeb0PU9Qs5NXswnXH-10">
+          <mxGeometry x="-0.1286" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-5" value="Access Token" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="105" y="200" width="55" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-6" value="&lt;p style=&quot;line-height: 120%; font-size: 11px;&quot;&gt;&lt;font color=&quot;#d6b656&quot; style=&quot;font-size: 11px;&quot;&gt;Local&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;background-color: initial; font-size: 11px;&quot;&gt;Security&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-size: 11px;&quot;&gt;Authority&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;fontColor=#000000;strokeColor=#d6b656;strokeWidth=2;dashed=1;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="27.5" y="300" width="210" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="iCWPeb0PU9Qs5NXswnXH-7" target="iCWPeb0PU9Qs5NXswnXH-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-7" value="Interactive logon session for Domain\User01" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="100" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-8" value="Cached Credentials" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="100" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-12" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;fontColor=#ffffff;strokeColor=#314354;" parent="1" vertex="1">
+          <mxGeometry x="590" y="186" width="240" height="344" as="geometry" />
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="324" as="sourcePoint" />
+            <mxPoint x="590" y="324" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430" y="324" />
+              <mxPoint x="430" y="324" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yxepo_TZv9du7_unf0Sd-2" value="2) explorer.exe uses the cached credentials in lsass to obtain&lt;br&gt;a Kerberos service ticket for the SMB share on server01.&lt;br&gt;In Windows Kerberos, the PAC contains the SID of the user&lt;br&gt;and the SIDs of the groups the user belongs to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="iCWPeb0PU9Qs5NXswnXH-14" vertex="1" connectable="0">
+          <mxGeometry x="0.0061" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iCWPeb0PU9Qs5NXswnXH-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.996;exitY=0.119;exitDx=0;exitDy=0;entryX=0.004;entryY=0.119;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="452.53599999999994" as="sourcePoint" />
+            <mxPoint x="591.92" y="452.53599999999994" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430.96000000000004" y="452.6" />
+              <mxPoint x="430.96000000000004" y="452.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-4" value="4) explorer.exe, now with a &lt;i&gt;remote&lt;/i&gt;&amp;nbsp;logon session, attempts to&lt;br&gt;read myFile.txt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iCWPeb0PU9Qs5NXswnXH-16">
+          <mxGeometry x="-0.0058" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yxepo_TZv9du7_unf0Sd-3" value="&lt;p style=&quot;line-height: 120%;&quot;&gt;&lt;font color=&quot;#d6b656&quot;&gt;Local Security Authority&lt;/font&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;align=center;verticalAlign=top;dashed=1;strokeWidth=2;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="605" y="200" width="210" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="yxepo_TZv9du7_unf0Sd-4" value="Network logon session for Domain\User01" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="620" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yxepo_TZv9du7_unf0Sd-5" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;3) If the user has access to the SMB&lt;br&gt;share,&amp;nbsp;the server&#39;s LSA creates&lt;br&gt;a network logon session for them.&lt;br&gt;This logon is NOT backed by cached&lt;br&gt;credentials. An access token is created.&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="600" y="225" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-2" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;SMB share&lt;br&gt;worker thread&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.gear;" vertex="1" parent="1">
+          <mxGeometry x="610" y="416" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-5" value="5) A thread in the SMB server process uses a&lt;br style=&quot;font-size: 11px;&quot;&gt;Windows API impersonation function (such as&lt;br style=&quot;font-size: 11px;&quot;&gt;ImpersonateLoggedOnUser) to read myFile.txt&lt;br style=&quot;font-size: 11px;&quot;&gt;on behalf of the client" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="585" y="530" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="21CLybmnpks0vFPOPoZK-6" target="yxepo_TZv9du7_unf0Sd-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-8" value="Points to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="21CLybmnpks0vFPOPoZK-7">
+          <mxGeometry x="-0.1333" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-6" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Impersonation&lt;br&gt;Token&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="637.5" y="400" width="85" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-9" value="myFile.txt" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/Futurosoft%20Icons%200.5.2/32x32/actions/edit.png" vertex="1" parent="1">
+          <mxGeometry x="750" y="426" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-10" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="459" as="sourcePoint" />
+            <mxPoint x="750" y="459" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-11" value="reads" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="21CLybmnpks0vFPOPoZK-10">
+          <mxGeometry x="-0.0286" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21CLybmnpks0vFPOPoZK-13" value="Security&lt;br style=&quot;font-size: 11px;&quot;&gt;Descriptor" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="770" y="405" width="60" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

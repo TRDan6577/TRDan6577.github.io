@@ -1,5 +1,6 @@
 ---
 title: "Flare-On 2020 Challenges"
+show_date: true
 date: 2020-12-25 00:07:00
 tags: [ctf, flareon, reversing]
 ---

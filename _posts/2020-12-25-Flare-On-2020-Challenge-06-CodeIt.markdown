@@ -1,5 +1,6 @@
 ---
 title: "Flare-On 2020: 06 - CodeIt"
+show_date: true
 date: 2020-12-25 00:06:00
 header:
   image: /assets/images/06CodeIt/header.png

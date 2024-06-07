@@ -1,6 +1,6 @@
 ---
 title: Cisco Switch Hardening
-date: 2017-05-19
+show_date: true
 tags: [cisco, networking, attack]
 ---
 For the majority of people in the networking and security fields, most of our education in securing our networks begins at layer 1 of the OSI model (keep the bad guys out of your server room), skips layer 2, and continues on to layers 3 and up with IPSec, SSL/TLS, etc. We are taught what protocols operate at layer 2, but there exists a hole in our education pertaining to how terribly insecure many of these layer 2 protocols are; this is kind of strange seeing as successfully attacking layer 2 gives you control over all layers about it. Hopefully, this blog post will be the stepping stone for a secure Cisco network in your future.

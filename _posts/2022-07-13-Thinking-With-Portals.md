@@ -1,5 +1,6 @@
 ---
 title: Thinking With Portals
+show_date: true
 header:
   image: /assets/images/2022/captiveportal/header.jpg
   teaser: /assets/images/2022/captiveportal/header.jpg

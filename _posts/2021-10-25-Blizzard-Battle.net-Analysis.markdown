@@ -1,5 +1,6 @@
 ---
 title: How "Remember Me" Works In Game Clients
+show_date: true
 header:
   image: /assets/images/2021/battlenet/header.png
   teaser: /assets/images/2021/battlenet/figure1.png

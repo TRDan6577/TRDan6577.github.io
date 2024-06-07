@@ -1,5 +1,6 @@
 ---
 title: "Flare-On 2020: 03 - Wednesday"
+show_date: true
 date: 2020-12-25 00:03:00
 header:
   image: /assets/images/03Wednesday/3.1.jpg

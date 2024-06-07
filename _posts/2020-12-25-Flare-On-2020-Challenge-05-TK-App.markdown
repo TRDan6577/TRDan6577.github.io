@@ -1,5 +1,6 @@
 ---
 title: "Flare-On 2020: 05 - TKApp"
+show_date: true
 date: 2020-12-25 00:05:00
 header:
   image: /assets/images/05TKApp/header.png

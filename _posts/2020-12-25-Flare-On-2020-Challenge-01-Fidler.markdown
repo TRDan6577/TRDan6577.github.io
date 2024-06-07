@@ -1,5 +1,6 @@
 ---
 title: "Flare-On 2020: 01 - Fidler"
+show_date: true
 date: 2020-12-25 00:01:00
 header:
   image: /assets/images/01Fidler/header.png

@@ -1,5 +1,6 @@
 ---
 title: "Flare-On 2020: 02 - Garbage"
+show_date: true
 date: 2020-12-25 00:02:00
 header:
   image: /assets/images/02Garbage/2.1.jpg
